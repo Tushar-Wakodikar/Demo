@@ -1,0 +1,21 @@
+<template>
+    {greeting}
+    <lightning-input label={inputlabel}></lightning-input>
+
+    <lightning-combobox
+            label="Language"
+            value={langvalue}
+            options={options}
+            onchange={handleChange} ></lightning-combobox>
+
+            <lightning-carousel>
+                <template for:each={actors} for:item="actor">
+                    <lightning-carousel-image
+                        key={actor.id}
+                        header={actor.header}
+                        src={actor.src}
+                        description={actor.description}
+                    ></lightning-carousel-image>
+                </template>
+            </lightning-carousel>
+</template>

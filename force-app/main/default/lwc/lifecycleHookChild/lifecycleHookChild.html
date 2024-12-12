@@ -1,0 +1,20 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="4">
+            <lightning-input placeholder="Child Type Here ..." onchange={handlevalue}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-m-top_large">
+        <lightning-layout-item size="4" class="slds-card">
+            {childvalue}
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout class="slds-p-left_xx-large">
+        <lightning-layout-item>
+            <lightning-input label="GrandChild" type="toggle" onchange={isVisible}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <c-lifecycle-hook-grandchild if:true={visiablity}></c-lifecycle-hook-grandchild>
+</template>

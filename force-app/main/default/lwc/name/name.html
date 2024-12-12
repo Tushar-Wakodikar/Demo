@@ -1,0 +1,15 @@
+<template>
+    <lightning-layout horizontal-align="spread">
+        <lightning-layout-item size="4">
+            <lightning-input placeholder="First Name" value={firstname} onchange={handleFirstName}></lightning-input>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="2">
+            <lightning-input placeholder="Middle Name" value={middlename} onchange={handleMiddleName}></lightning-input>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="4">
+            <lightning-input placeholder="Last Name" value={lastname} onchange={handleLastName}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -1,0 +1,22 @@
+<template>
+    
+        <div class="chat-container">
+            <!-- Chat Display Area -->
+            <div class="chat-display">
+                <template for:each={messages} for:item="msg">
+                    <div key={msg.id} class="chat-message">
+                        <strong>{msg.sender}:</strong> {msg.text}
+                    </div>
+                </template>
+            </div>
+    
+            <!-- Input and Send Button -->
+            <div class="chat-input">
+                <input type="text" placeholder="Type a message..." value={inputValue} oninput={handleInputChange} />
+                <button onclick={sendMessage}>Send</button>
+            </div>
+        </div>
+    
+    
+    
+</template>

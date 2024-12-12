@@ -1,0 +1,22 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item size="4">
+            Name = {Name}
+        </lightning-layout-item>
+        <lightning-layout-item size="4">
+            Phone = {Phone}
+        </lightning-layout-item>
+        <lightning-layout-item size="4">
+            Email = {email}
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout class="slds-m-top_large" horizontal-align="spread">
+        <lightning-layout-item size="6">
+        <lightning-button variant="base" label="Show Name on Console" onclick={showname}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item size="6">
+            <lightning-button variant="success" label="Show Name on Alert" onclick={showAlert}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

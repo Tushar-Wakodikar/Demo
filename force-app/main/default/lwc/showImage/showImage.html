@@ -1,0 +1,21 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="10">
+            <lightning-layout multiple-rows>
+                <template for:each={imagelist} for:item='image'>
+                    <lightning-layout-item key={image} size="3">
+                        <img src={image} alt="Image Not Found">
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-m-top_large">
+        <lightning-layout-item>
+            <lightning-button label="Add Image" onclick={addImage}></lightning-button>
+        </lightning-layout-item>
+        <!--<lightning-layout-item>
+            {number}
+        </lightning-layout-item>-->
+    </lightning-layout>
+</template>

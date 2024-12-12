@@ -1,0 +1,27 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="6">
+            <lightning-input placeholder="Search Here ..." onchange={handleName}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="10">
+            <lightning-datatable columns={columnsData} hide-checkbox-column
+                                data={result.data}
+                                key-field="id"
+                                onrowaction={handleRowAction}
+                                ></lightning-datatable>
+        </lightning-layout-item>
+        </lightning-layout>
+        <lightning-layout if:true={ContactId}>
+    <lightning-layout-item size="5" class="slds-box">
+        <lightning-record-form record-id={ContactId}
+                                object-api-name="Contact"
+                                mode={handlemode}
+                                fields={filed}
+                                columns="2"
+                                >
+        </lightning-record-form>
+    </lightning-layout-item>
+    </lightning-layout>
+</template>

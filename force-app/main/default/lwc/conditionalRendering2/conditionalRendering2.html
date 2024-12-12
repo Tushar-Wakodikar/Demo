@@ -1,0 +1,17 @@
+<template>
+    <lightning-layout horizontal-align="center" lwc:if={visiblityFlag}>
+        <lightning-layout-item size="4" class="slds-box">
+            Dummy Content Item 1 (Element 2 is destroied)
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" lwc:else>
+        <lightning-layout-item size="4" class="slds-box">
+            Dummy Content Item 2 (Element 1 is destroied)
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item>
+            <lightning-button label="Toggle" onclick={showHideContent}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

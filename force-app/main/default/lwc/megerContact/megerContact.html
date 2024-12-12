@@ -1,0 +1,84 @@
+<template>
+    <lightning-card title="Merge Contact">
+    <lightning-layout>
+        <lightning-layout-item size="5" class="slds-p-left_x-large">
+            <lightning-input label="Contact Name" placeholder="Search Contact by Name" onchange={handleContact}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="5" class="slds-p-left_x-large">
+            <lightning-input label="Contact Email" placeholder="Search Contact by Email" onchange={handleContact}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-around_large">
+            <lightning-button label="Merge" onclick={showModalBox} disabled={mergeButton} variant="destructive"></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-m-top_x-large">
+        <lightning-layout-item style="height:400px">
+            <lightning-datatable
+                    key-field="Id"
+                    columns={columnData}
+                    data={contactData} max-row-selection="2" 
+                    onrowselection={handleRowSelection}></lightning-datatable>
+        </lightning-layout-item>
+    </lightning-layout>
+    </lightning-card>
+
+<template if:true={isShowModal}>
+<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+<div class="slds-modal__container">
+  <header class="slds-modal__header">
+     <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBox}>
+        <lightning-icon icon-name="utility:close"
+           alternative-text="close"
+           variant="inverse"
+           size="small" ></lightning-icon>
+        <span class="slds-assistive-text">Close</span>
+     </button>
+     <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Merge Selected Contact</h2>
+  </header>
+  <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+        <p><b>Left Side Contact is Primary and its data will use for Merger</b></p>
+
+        <lightning-layout class="slds-p-around_large">
+                        
+
+            <lightning-layout-item size="5">
+            <lightning-input label="First Name" value={priFirstName} onchange={handleFieldChange}></lightning-input>
+            <lightning-input label="Last Name" value={priLastName} onchange={handleFieldChange}></lightning-input>
+            <lightning-input label="Email" value={priEmail} onchange={handleFieldChange}></lightning-input>
+            <lightning-input label="Phone" value={priPhone} onchange={handleFieldChange}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-top_large slds-m-left_large slds-m-right_large">
+            <lightning-layout class="slds-p-bottom_xx-small">
+                <lightning-button-icon icon-name="utility:back" name="firstNameLeft" onclick={handleNav}></lightning-button-icon>
+            </lightning-layout>
+            <lightning-layout class="slds-p-top_medium slds-m-top_xx-small">
+                <lightning-button-icon icon-name="utility:back" name="lastNameLeft" onclick={handleNav}></lightning-button-icon>
+            </lightning-layout>
+            <lightning-layout class="slds-p-top_medium slds-m-top_x-small">
+                <lightning-button-icon icon-name="utility:back" name="emailLeft" onclick={handleNav}></lightning-button-icon>
+            </lightning-layout>
+            <lightning-layout class="slds-p-top_medium slds-m-top_x-small">
+                <lightning-button-icon icon-name="utility:back" name="phoneLeft" onclick={handleNav}></lightning-button-icon>
+            </lightning-layout>
+
+        </lightning-layout-item>
+
+        <lightning-layout-item size="5">
+            <lightning-input disabled="true" label="First Name" value={secFirstName}></lightning-input>
+            <lightning-input  disabled="true" label="Last Name" value={secLastName}></lightning-input>
+            <lightning-input  disabled="true" label="Email" value={secEmail}></lightning-input>
+            <lightning-input  disabled="true" label="Phone" value={secPhone}></lightning-input>
+        </lightning-layout-item>
+        </lightning-layout>
+  </div>
+
+  <footer class="slds-modal__footer">
+    <button class="slds-button slds-button_success" onclick={mergeContacts} style="width: 200px">Merge</button>
+     <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+  </footer>
+
+</div>
+</section>
+<div class="slds-backdrop slds-backdrop_open"></div>
+</template>
+</template>

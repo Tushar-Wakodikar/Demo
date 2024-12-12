@@ -1,0 +1,3 @@
+<aura:component implements="lightning:isUrlAddressable">
+    <c:singupPage></c:singupPage>
+</aura:component>

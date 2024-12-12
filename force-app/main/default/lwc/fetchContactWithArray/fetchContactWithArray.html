@@ -1,0 +1,17 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="6">
+            <lightning-input label="First Name" onchange={handleFnameChange}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="6">
+            <lightning-input label="Last Name" onchange={handleLnameChange}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="6">
+            <lightning-button label="Submit" onclick={handleSubmit}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -1,0 +1,14 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="10">
+            <lightning-layout multiple-rows>
+                <template for:each={imageList} for:item="image" for:index="index">
+                    <lightning-layout-item size="2" key={image}>
+                        <img src={image}>
+                        {index}
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

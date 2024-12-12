@@ -1,0 +1,10 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item size="8">
+            <lightning-input label="Account Name" placeholder="Search Account" onchange={handleName}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-top_large">
+            <lightning-button label="Get Account" variant="brand" onclick={handleSearch}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

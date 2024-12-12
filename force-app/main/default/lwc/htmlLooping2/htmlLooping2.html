@@ -1,0 +1,15 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="10">
+            <lightning-layout multiple-rows>
+                <template for:each={instructors} for:item="instructor" for:index="index">
+                    <lightning-layout-item size="3" class="slds-box slds-m-around_small" key={instructor.name} if:true={instructor.active}>
+                        Name : {instructor.name} <br>
+                        Topic : {instructor.topic} <br>
+                        Index : {index}
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

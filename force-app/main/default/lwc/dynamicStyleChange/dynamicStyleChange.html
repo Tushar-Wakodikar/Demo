@@ -1,0 +1,21 @@
+<template>
+    <lightning-layout horizontal-align="center" multiple-rows>
+        <lightning-layout-item size="5">
+            <lightning-input placeholder="Type Value Here ..." onchange={handleValue}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="5">
+            <lightning-input placeholder="Type Color Here ..." onchange={handleColor}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="5">
+            <lightning-input placeholder="Type Back Ground Here ..." onchange={handleStyle}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="5">
+            <lightning-input placeholder="Type Font Here ..." onchange={handleFont}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-var-m-top_large">
+        <lightning-layout-item size="3" class="slds-box textstyle">
+            {content}
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

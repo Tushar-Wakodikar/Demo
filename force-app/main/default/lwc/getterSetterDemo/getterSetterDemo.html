@@ -1,0 +1,39 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="10">
+    <lightning-layout horizontal-align="spread">
+        <lightning-layout-item size="3">
+            <lightning-input label="First Name" placeholder="Enter Value Here" onchange={handleFirstName}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="3">
+            <lightning-input label="Middle Name" placeholder="Enter Value Here" onchange={handleMiddleName}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="3">
+            <lightning-input label="Last Name" placeholder="Enter Value Here" onchange={handleLastName}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-m-top_medium">
+        <lightning-layout-item size="4">
+            <lightning-combobox placeholder="Select Country"
+                                options={countryOptions}
+                                onchange={handleCountry}>
+                            </lightning-combobox>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" class="slds-m-left_large">
+            <lightning-input placeholder="Phone" onchange={handlePhone}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="4" class="slds-m-left_large">
+            <lightning-input placeholder="Change Color" onchange={handleColorChange}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class={classChange}>
+        <lightning-layout-item size="5"> 
+           Name : {fullname}
+    </lightning-layout-item>
+    <lightning-layout-item size="5"> 
+       <h1><b>Phone: {countryCode} Color : {colors} </b></h1>
+</lightning-layout-item>
+    </lightning-layout>
+</lightning-layout-item>
+</lightning-layout>
+</template>

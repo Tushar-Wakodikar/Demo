@@ -1,0 +1,17 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="10">
+            <lightning-layout multiple-rows>
+                <template iterator:it={instructors}>
+                    <lightning-layout-item size="3" class="slds-box slds-m-around_small" key={it.value.name} if:true={it.value.active}>
+                        Name : {it.value.name} <br>
+                        Topic : {it.value.topic} <br>
+                        Index : {it.index} <br>
+                        First : {it.first} <br>
+                        Last : {it.last}
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

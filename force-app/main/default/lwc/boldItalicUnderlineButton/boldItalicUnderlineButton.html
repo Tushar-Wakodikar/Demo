@@ -1,0 +1,22 @@
+<template>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-button label="B" onclick={handleBold}></lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item>
+            <lightning-button label="I" onclick={handleItalic}></lightning-button>
+        </lightning-layout-item><lightning-layout-item>
+            <lightning-button label="U" onclick={handleUnderline}></lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-var-m-top_medium">
+        <lightning-layout-item size="5">
+            <lightning-input placeholder="Type Here ..." onchange={handleValue}></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-var-m-top_medium">
+        <lightning-layout-item>
+            <lightning-formatted-rich-text value={finalStyle}></lightning-formatted-rich-text>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

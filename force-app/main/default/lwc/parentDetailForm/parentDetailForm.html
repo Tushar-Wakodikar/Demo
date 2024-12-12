@@ -1,0 +1,45 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="12" class="slds-card">
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item>
+            <img src="https://img-cdn.pixlr.com/image-generator/history/65bb506dcb310754719cf81f/ede935de-1138-4f66-8ed7-44bd16efc709/medium.webp" 
+            alt="Image Not Found" width="250" height="300">
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-m-top_medium">
+        <lightning-layout-item class="slds-text-heading_large">
+            Detail Form
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout horizontal-align="center" class="slds-m-top_medium">
+        <lightning-layout-item size="8" class="slds-box">
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item size="10">
+                    <c-name firstname={firstname} middlename={middlename} lastname={lastname} onfirstnamechange={handleFirstName} onmiddlenamechange={handleMiddleName} onlastnamechange={handleLastName}></c-name>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout horizontal-align="center" class="slds-m-top_medium">
+                <lightning-layout-item size="10">
+                    <c-contact phone={phone} onphonechange={handlePhone} email={email} onemailchange={handleEmail}></c-contact>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout horizontal-align="center" class="slds-m-top_medium">
+                <lightning-layout-item size="10">
+                    <c-address line1={line1} city={city} pin-code={pincode} state={state} country={country} onstreetchange={handleStreet} oncitychange={handleCity} onstatechange={handleState} onpincodechange={handlePincode} oncountrychange={handleCountry}></c-address>
+                </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout horizontal-align="center" class="slds-m-top_xx-large">
+                <lightning-layout-item>
+                    <lightning-button label="Create Client" variant="brand" onclick={createClientRec}></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</lightning-layout-item>
+</lightning-layout>
+</template>

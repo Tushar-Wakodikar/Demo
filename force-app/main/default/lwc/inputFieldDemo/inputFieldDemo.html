@@ -1,0 +1,47 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="3" class="slds-m-right_small">
+            <lightning-input onchange={handleFirstName} placeholder="First Name"></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-left_small">
+            <lightning-input onchange={handleLastName} placeholder="Last Name"></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-p-around_small">
+        <lightning-layout-item>
+            {firstname} {lastname}
+        </lightning-layout-item>
+    </lightning-layout>
+
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="12" class="slds-card slds-p-top_large slds-text-align_center">
+            Address
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout horizontal-align="center" class="slds-m-top_small">
+        <lightning-layout-item size="3" class="slds-m-right_small">
+            <lightning-input value={line1} label="Line 1" onchange={handleAddress} field-level-help="Dont Rewrite Address"></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="3" class="slds-m-left_small">
+            <lightning-input value={line2} label="Line 2" onchange={handleAddress} title="Dont Rewrite Address"></lightning-input>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout>
+        <lightning-layout-item>
+            <lightning-button label="Show Address" onclick={handleClick} title="Primary Action">
+            </lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-m-left_large">
+            <lightning-button label="Update Address" onclick={updateAddress} title="Update Action">
+            </lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout if:true={isVisible} horizontal-align="center">
+        <lightning-layout-item size="6">
+            <lightning-dynamic-icon type="trend" option="down" alternative-text="Trending down"></lightning-dynamic-icon>
+            <lightning-card  title="Address">
+                <p class="slds-p-horizontal_small"> {updateline1} {updateline2} </p>
+            </lightning-card>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Organization's Account and Contacts Management" variant="narrow"> 
+        <lightning-layout class="slds-p-bottom_large slds-p-left_medium">    
+            <lightning-layout-item size="8">
+                <lightning-input placeholder="Search Here ..." onchange={handleSearch}></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-m-top_medium">
+                <lightning-button label="Search" onclick={handleClick}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-card>
+</template>

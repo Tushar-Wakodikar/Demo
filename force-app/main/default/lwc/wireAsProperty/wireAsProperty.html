@@ -1,0 +1,19 @@
+<template>
+    <lightning-layout horizontal-align="center" class="slds-box">
+        <lightning-layout-item size="7">
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item size="12">
+                    <lightning-input placeholder="Search Here ..." onchange={handleSearchResult}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+        <lightning-layout horizontal-align="center" class="slds-m-top_x-large">
+            <lightning-layout-item size="12">
+                <lightning-datatable 
+                            key-field="Id" 
+                            columns={columnData} 
+                            data={contactData.data} hide-checkbox-column></lightning-datatable>
+            </lightning-layout-item>
+        </lightning-layout>
+    </lightning-layout-item>
+    </lightning-layout>
+</template>

@@ -1,0 +1,47 @@
+<template>
+    <form>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item class="slds-box" size="10">
+            <h1 class="slds-text-heading_medium">Create Client</h1>
+            <lightning-layout horizontal-align="space" class="slds-m-top_medium" multiple-rows>
+                <lightning-layout-item size="3" class="slds-m-around_small">
+                    <lightning-input placeholder="First Name" onchange={handleFirstName}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="slds-m-around_small">
+                    <lightning-input placeholder="Middle Name" onchange={handleMiddleName}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="slds-m-around_small">
+                    <lightning-input placeholder="Last Name" onchange={handleLastName}></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="slds-m-around_small">
+                    <lightning-combobox placeholder="Select Gender" options={options} onchange={handleGender}></lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="3" class="slds-m-around_small">
+                    <lightning-input placeholder="Phone" onchange={handlePhone}></lightning-input>
+                </lightning-layout-item><lightning-layout-item size="3" class="slds-m-around_small">
+                    <lightning-input placeholder="Email ID" onchange={handleEmail}></lightning-input>
+                </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout horizontal-align="center" class="slds-m-top_medium">
+                <lightning-layout-item class="slds-m-around_x-large">
+                    <lightning-button label="View" onclick={handleView} variant="brand"></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item  class="slds-m-around_x-large">
+                    <lightning-button label="Create Client" onclick={handleCreate} variant="brand"></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item  class="slds-m-around_x-large">
+                    <lightning-button label="Open Client" onclick={handleClient} variant="brand"></lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item  class="slds-m-around_x-large">
+                    <lightning-button label="Reset" onclick={handleRest} variant="destructive"></lightning-button>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+    <lightning-layout if:true={view}>
+        <lightning-layout-item size="10">
+            <lightning-record-form object-api-name="Client__c" mode="view" record-id={clientid} layout-type="Full" columns="2"></lightning-record-form>
+        </lightning-layout-item>
+    </lightning-layout>
+</form>
+</template>

@@ -1,0 +1,24 @@
+<template>
+    <lightning-layout horizontal-align="center">
+        <lightning-layout-item size="10">
+            <lightning-layout horizontal-align="center">
+                <lightning-layout-item size="10">
+            <lightning-input lable="Search Contact" placeholder="Search Here ..." onchange={handleSearch}></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-p-top_x-small">
+            <lightning-button label="Search" onclick={handleClick}></lightning-button>
+        </lightning-layout-item>
+            </lightning-layout>
+            <lightning-layout horizontal-align="center" class="slds-box slds-m-top_large">
+                <lightning-layout-item size="12">
+                    <lightning-datatable
+                        key-field="id"
+                        data={contactResult}
+                        columns={columnsData}
+                    ></lightning-datatable>
+                </lightning-layout-item>
+                {contactResult.length}
+            </lightning-layout>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

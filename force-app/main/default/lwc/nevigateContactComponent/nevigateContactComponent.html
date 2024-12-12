@@ -1,0 +1,120 @@
+<template>
+    <lightning-card class="slds-m-top_medium" title={title}>
+
+        <lightning-layout if:false={accountId} horizontal-align="center">
+            <b>Acccount is not Selected</b>
+        </lightning-layout>
+
+        <div class="slds-p-around_medium lgc-bg" if:true={accountId}>
+            <lightning-layout>
+
+                <lightning-layout-item size="1">
+                    <lightning-button-icon icon-name="utility:adduser" variant="container"
+                        alternative-text="Add Contact" title="Add user" onclick={handleContact}></lightning-button-icon>
+                </lightning-layout-item>
+
+                <lightning-layout-item size="1">
+                    <lightning-button-icon icon-name="utility:search" variant="container"
+                        alternative-text="Search Opportunity" title="Search Opportunity"
+                        onclick={handleOpp}></lightning-button-icon>
+                </lightning-layout-item>
+
+            </lightning-layout>
+
+            <template if:true={hasContact}>
+                <template for:each={contacts} for:item="contact">
+                    <lightning-layout key={contact.Id} class="slds-box slds-m-around_small">
+                        
+                        <lightning-layout-item size="8">
+                            <b>{contact.Name}</b>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="1">
+                            <lightning-button-icon icon-name="utility:edit" variant="brand"
+                                alternative-text="Edit Contact" class="slds-m-left_xx-small" title="Edit Contact"
+                                onclick={handleEditContact} data-contact-id={contact.Id}></lightning-button-icon>
+                        </lightning-layout-item>
+
+                        <lightning-layout-item size="1">
+                            <lightning-button-icon icon-name="utility:delete" variant="brand" alternative-text="Delete"
+                                class="slds-m-left_xx-small" title="Delete"
+                                onclick={handleDeleteContact} data-contact-id={contact.Id}></lightning-button-icon>
+                        </lightning-layout-item>
+
+                    </lightning-layout>
+                </template>
+            </template>
+
+            <template if:false={hasContact}>
+                <lightning-layout horizontal-align="center">
+                    <lightning-layout-item>
+                        There is no Contact to Diplay
+                    </lightning-layout-item>
+                </lightning-layout>
+            </template>
+
+        </div>
+    </lightning-card>
+
+    <template if:true={createContact}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-card" onclick={cancleAddContact}>
+                    <b>X</b>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate" tabindex="-1">Create Contact</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <lightning-record-edit-form object-api-name="Contact" onsuccess={handleContactSuccess}>
+                        <lightning-input-field field-name="Name"></lightning-input-field>
+                        <lightning-input-field field-name="AccountId" value={accountId}></lightning-input-field>
+                        <div class="slds-var-m-top_medium">
+                            <lightning-button variant="brand" type="submit" label="Save">
+                            </lightning-button>
+                        </div>
+                    </lightning-record-edit-form>
+                </div>
+                <div class="slds-modal__footer">
+                    <button onclick={cancleAddContact} class="slds-button slds-button_neutral"
+                        aria-label="Cancel and close">Cancel</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+    <template if:true={editContact}>
+        <section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+            class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+                <button class="slds-button slds-button_icon slds-modal__close slds-card" onclick={cancleEditContact}>
+                    <b>X</b>
+                    <span class="slds-assistive-text">Cancel and close</span>
+                </button>
+                <div class="slds-modal__header">
+                    <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate" tabindex="-1">Edit Contact</h1>
+                </div>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    <lightning-record-edit-form record-id={contactId} object-api-name="Contact"
+                        onsuccess={handleContactEditSuccess}>
+                        <lightning-input-field field-name="Name"></lightning-input-field>
+                        <lightning-input-field field-name="AccountId" value={accountId}></lightning-input-field>
+                        <div class="slds-var-m-top_medium">
+                            <lightning-button variant="brand" type="submit" label="Save">
+                            </lightning-button>
+                        </div>
+                    </lightning-record-edit-form>
+                </div>
+                <div class="slds-modal__footer">
+                    <button onclick={cancleEditContact} class="slds-button slds-button_neutral"
+                        aria-label="Cancel and close">Cancel</button>
+                </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+</template>

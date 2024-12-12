@@ -1,0 +1,12 @@
+<template>
+    <lightning-layout>
+    <lightning-layout-item>
+        <lightning-datatable hide-checkbox-column
+                            key-field="Id" 
+                            data={accounts}
+                            columns={columns}
+                            onrowaction={handleRowAction}
+                            show-row-number-column></lightning-datatable>
+    </lightning-layout-item>
+    </lightning-layout>
+</template>
